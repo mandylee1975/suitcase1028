@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* background-color: #ede0d4; */
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .wrap {
+            /* border: 1px solid red; */
+            margin: center;
+            width: 100%;
+
+        }
+
+        header {
+            /* border: 1px solid red; */
+            display: flex;
+            justify-content: space-between;
+            width: auto;
+            height: 100px;
+            z-index: 100;
+        }
+
+        /* header內的logo */
+        header h1 {
+            left: 20px;
+            margin-top: 20px;
+            text-align: left;
+
+        }
+
+        .logo h1 img {
+            width: 200px;
+        }
+
+        /* header內的超連結icon */
+        header ul {
+
+            display: inline;
+            right: 30px;
+            top: 20px;
+            margin-right: 20px;
+        }
+
+        .box img {
+            margin-top: 50px;
+            margin-left: 10px;
+            width: 20px;
+            height: 20px;
+            text-align: right;
+        }
+
+
+
+        /* 選單第一層 */
+        nav {
+            /* border: 1px solid red; */
+            width: 100%;
+            height: 40px;
+            z-index: 110;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            list-style: none;
+            float: right;
+        }
+
+        nav li:hover ul {
+            display: block;
+        }
+
+        nav a {
+            font-size: 12px;
+            display: block;
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            color: #a9927d;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        nav a:hover {
+            background-color: #a9927d;
+            color: #fff;
+        }
+
+        /* 選單第二層 */
+        nav ul ul {
+            position: absolute;
+            display: none;
+            z-index: 120;
+        }
+
+        nav li li {
+            clear: right;
+        }
+
+        /* 內容-圖片 */
+        .slider {
+            /* border: 1px solid red; */
+            width: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .slide img {
+            /* border: 1px solid red; */
+            max-width: 100%;
+            vertical-align: bottom;
+            z-index: 98 margin-top: 100px;
+        }
+
+        /* 內容-按鈕 */
+        .slides {
+            /* border: 1px solid red; */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .slides input {
+            display: none;
+            margin-right: 10px;
+        }
+
+        .manual-btn {
+            border: 2px solid#ede0d4;
+            padding: 5px;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            transition: 1s;
+        }
+
+        .manual-btn:hover {
+            background-color: #a9927d;
+        }
+
+        .manual-btn:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        /* #r1:checked .first {
+            margin-left: 0%;
+        }
+
+        #r2:checked .first {
+            margin-left: -20%;
+        }
+
+        #r3:checked .first {
+            margin-left: -40%;
+        }
+
+        #r4:checked .first {
+            margin-left: -60%;
+        }
+
+        #r5:checked .first {
+            margin-left: -80%;
+        } */
+
+        */ .p-info {
+            /* border: 1px solid red; */
+            width: 100%;
+            /* background-color: #a9927d; */
+        }
+
+        #wheel,
+        #handle,
+        #strap {
+            /* border: 1px solid red; */
+            background-color: #fff;
+            padding-left: 12px;
+            width: 400px;
+            height: 600px;
+            display: inline-block;
+        }
+
+        #wheel img,
+        #handle img,
+        #strap img {
+            background-color: #fff;
+            margin-top: 20px;
+            width: 350px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+        }
+
+        #wheel h2,
+        #handle h2,
+        #strap h2 {
+            /* border: 1px solid red; */
+            line-height: 3;
+            text-align: left;
+        }
+
+        #wheel p,
+        #handle p,
+        #strap p {
+            /* border: 1px solid red; */
+            width: 350px;
+            font-size: 12px;
+            line-height: 3;
+            display: flex;
+            justify-content: center;
+        }
+
+
+        /* buy now按鈕 */
+        #btn-71 {
+            /* border: 1px solid red; */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+        }
+
+        .button-71 {
+            /* border: 1px solid red; */
+            background-color: #5c574f;
+            border: 0;
+            border-radius: 56px;
+            color: #fff;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 18px;
+            font-weight: 600;
+            outline: 0;
+            padding: 16px 21px;
+            position: relative;
+            text-decoration: none;
+            transition: all .3s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+
+        }
+
+        .button-71:before {
+            background-color: initial;
+            background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+            border-radius: 125px;
+            content: "";
+            height: 50%;
+            left: 4%;
+            opacity: .5;
+            position: absolute;
+            top: 0;
+            transition: all .3s;
+            width: 92%;
+        }
+
+
+        .button-71:hover {
+            box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+            transform: scale(1.05);
+        }
+
+        @media (min-width: 768px) {
+            .button-71 {
+                padding: 16px 48px;
+            }
+        }
+
+        /* 頁尾 */
+        .footer {
+            /* border: 1px solid red; */
+            margin-top: 20px;
+            background-color: #5c574f;
+            width: 100%;
+            display: inline-block;
+
+        }
+
+        .footer h5 {
+            background-color: #5c574f;
+            color: #ede0d4;
+            margin-bottom: 20px;
+            line-height: 2;
+        }
+
+        .footer h6 {
+            background-color: #5c574f;
+            color: #ede0d4;
+            line-height: 2;
+        }
+
+        .footer p {
+            font-size: 11px;
+            background-color: #5c574f;
+            color: #ede0d4;
+            line-height: 2;
+
+        }
+
+        .footer img {
+            width: 10PX;
+            height: 10px;
+            vertical-align: center;
+            color: #ede0d4;
+            background-color: #5c574f;
+
+        }
+
+        #office {
+            background-color: #5c574f;
+            margin-left: 20px;
+            margin-top: 20px;
+            width: 30%;
+            float: left;
+        }
+
+        #office span img {
+            width: 100px;
+            height: 100px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .store {
+            background-color: #5c574f;
+            width: 65%;
+            float: right;
+        }
+
+        #store {
+            margin-top: 20px;
+            background-color: #5c574f;
+        }
+
+        .a {
+            display: inline;
+            text-align: right;
+        }
+
+        /* #payment {
+            border: 1px solid red;
+            background-color: #5c574f;
+            clear: both;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 20px;
+            padding-top: 50px;
+        }
+
+        #payment img {
+            border: 1px solid red;
+            background-color: #5c574f;
+            width: 500px;
+            height: auto;
+            display: inline;
+        } */
+
+
+        #licence {
+            /* border: 1px solid red; */
+            letter-spacing: 2px;
+            width: 100%;
+            height: 20px;
+            background-color: #5c574f;
+            color: #ede0d4;
+            clear: both;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+        }
+
+        #licence p {
+            font-size: 9px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="wrap">
+
+        <!--頁首-logo+icon -->
+        <header>
+            <div class="logo">
+
+                <h1><img src="./carousel/images/Logo.png" alt=""></h1>
+            </div>
+
+            <div class="box">
+                <ul>
+                    <a href="#" alt=""><img src="./carousel/icon/search (small).png" alt=""></a>
+                    <a href="#" alt=""><img src="./carousel/icon/user.png" alt=""></a>
+                    <a href="#" alt=""><img src="./carousel/icon/shopping-bag.png" alt=""></a>
+                </ul>
+            </div>
+
+        </header>
+
+
+
+        <!-- 選單 -->
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">HELP</a>
+
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <a href="#">ABOUT US</a>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <a href="#">PRODUCT</a>
+                    <ul>
+                        <li>
+                            <a href="#">MACARONS</a>
+
+                        </li>
+                        <li>
+                            <a href="#">BUSINESS</a>
+
+                        </li>
+                        <li>
+                            <a href="#">CHILDREN</a>
+
+                        </li>
+
+
+                    </ul>
+
+
+                </li>
+            </ul>
+
+
+            <ul>
+                <li>
+                    <a href="#">HOME</a>
+                </li>
+            </ul>
+
+    </div>
+    </nav>
+
+
+    <!-- 幻燈片 -->
+    <div class="slide">
+        <ul>
+            <li><img src="./carousel/images/01.jpg" alt=""></li>
+            <li><img src="./carousel/images/02.jpg" alt=""></li>
+            <li><img src="./carousel/images/03.jpg" alt=""></li>
+            <li><img src="./carousel/images/04.jpg" alt=""></li>
+            <li><img src="./carousel/images/05.jpg" alt=""></li>
+        </ul>
+    </div>
+
+    <!-- 圓點 -->
+
+    <div class="slider">
+        <div class="slides">
+            <input type="radio" name="r-btn" id="r1" checked>
+            <input type="radio" name="r-btn" id="r2" checked>
+            <input type="radio" name="r-btn" id="r3" checked>
+            <input type="radio" name="r-btn" id="r4" checked>
+            <input type="radio" name="r-btn" id="r5" checked>
+
+            <div class="navigation-auto">
+                <div class="aut-btn1"></div>
+                <div class="aut-btn2"></div>
+                <div class="aut-btn3"></div>
+                <div class="aut-btn4"></div>
+                <div class="aut-btn5"></div>
+            </div>
+
+            <div class="navigation-manual">
+                <label for="r1" class="manual-btn"></label>
+                <label for="r2" class="manual-btn"></label>
+                <label for="r3" class="manual-btn"></label>
+                <label for="r4" class="manual-btn"></label>
+                <label for="r5" class="manual-btn"></label>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="btn-71">
+        <button class="button-71" role="button">Buy Now</button>
+    </div>
+
+    <!-- 運送資訊 -->
+
+
+    <!-- 產品資訊 -->
+    <div class="p-info">
+
+        <div id="wheel">
+            <img src="./carousel/images/introduce-01.png" alt="">
+            <h2> 360 Degree Spinning Wheels</h2>
+            <p>All of our Kono suitcases come with 360 degree, spinning wheels designed for easy movement. These wheels
+                are antiskid and are with a silent design.</p>
+        </div>
+        <div id="handle">
+            <img src="./carousel/images/introduce-02.png" alt="">
+            <h2>Telescopic Handle</h2>
+            <p>Our luggage comes with aluminum telescopic handle which is more sturdy and lighter. The easy grab short
+                handle makes lifting easier.</p>
+        </div>
+        <div id="strap">
+            <img src="./carousel/images/introduce-03.png" alt="">
+            <h2>Multiple Compartments</h2>
+            <p>The interior of the suitcase is designed with mesh pocket, zipped divider and cross-strap to maximize
+                your
+                packing power and you can pack your belongings neatly.</p>
+
+        </div>
+    </div>
+
+
+
+    <!-- 頁尾-->
+    <div class="footer">
+
+        <div id="office">
+            <h5>聯絡資訊</h5>
+            <p><img src="./carousel/icon/iconmonstr-phone-thin.svg" alt="">&nbsp;&nbsp;客服Tel：+886-02-2954-6666</p>
+            <p><img src="./carousel/icon/iconmonstr-time-2.svg" alt="">&nbsp;&nbsp;客服時間：週一至週五 9:00-12:00 13:30-18:00</p>
+            <p><img src="./carousel/icon/iconmonstr-mail-thin.svg" alt="">&nbsp;&nbsp;信箱E-Mail：service@freedom.com.tw
+            </p>
+            <p><span><img src="./carousel/images/FREEDOM QR CODE.png" alt=""></span></p>
+
+
+            <!-- AddToAny BEGIN -->
+            <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                <!-- <a class="a2a_dd" href="https://www.addtoany.com/share"></a> -->
+                <a class="a2a_button_facebook"></a>
+                <a class="a2a_button_threads"></a>
+                <a class="a2a_button_line"></a>
+                <a class="a2a_button_pinterest"></a>
+                <a class="a2a_button_wechat"></a>
+                <a class="a2a_button_x"></a>
+            </div>
+            <script async src="https://static.addtoany.com/menu/page.js"></script>
+            <!-- AddToAny END -->
+        </div>
+
+        <div class="store">
+            <div id="store">
+                <h5>銷售門市</h5>
+                <h6>北部門市-家樂福樹林店</h6>
+                <p><img src="./carousel/icon/iconmonstr-location-2.svg" alt="">&nbsp;&nbsp;地址：新北市樹林區大安路118號</p>
+                <p><img src="./carousel/icon/iconmonstr-phone-thin.svg" alt="">&nbsp;&nbsp;Tel：02-2681-0000</p>
+                <p><img src="./carousel/icon/iconmonstr-time-2.svg" alt="">&nbsp;&nbsp;營業時間：AM10:00-PM10:30</p>
+
+                <div id="store">
+                    <h6>桃園門市-家樂福中原店</h6>
+                    <p><img src="./carousel/icon/iconmonstr-location-2.svg" alt="">&nbsp;&nbsp;地址：桃園市中壢區中華路二段501號</p>
+                    <p><img src="./carousel/icon/iconmonstr-phone-thin.svg" alt="">&nbsp;&nbsp;Tel：03-433-4601</p>
+                    <p><img src="./carousel/icon/iconmonstr-time-2.svg" alt="">&nbsp;&nbsp;營業時間：AM10:00-PM10:30</p>
+                </div>
+
+                <div id="store">
+                    <h6>中部門市-家樂福文心店</h6>
+                    <p><img src="./carousel/icon/iconmonstr-location-2.svg" alt="">&nbsp;&nbsp;地址：台中市南屯區文心路一段521號</p>
+                    <p><img src="./carousel/icon/iconmonstr-phone-thin.svg" alt="">&nbsp;&nbsp;Tel：04-2254-3355</p>
+                    <p><img src="./carousel/icon/iconmonstr-time-2.svg" alt="">&nbsp;&nbsp;營業時間：AM10:00-PM10:30</p>
+                </div>
+
+                <div id="store">
+                    <h6>南部門市-家樂福新楠店</h6>
+                    <p><img src="./carousel/icon/iconmonstr-location-2.svg" alt="">&nbsp;&nbsp;地址：高雄市楠梓區土庫一路60號</p>
+                    <p><img src="./carousel/icon/iconmonstr-phone-thin.svg" alt="">&nbsp;&nbsp;Tel：07-351-8096</p>
+                    <p><img src="./carousel/icon/iconmonstr-time-2.svg" alt="">&nbsp;&nbsp;營業時間：AM10:00-PM10:30</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <div id="payment">
+            <img src="./carousel/icon/iconmonstr-payment-1.svg" alt="">
+            <img src="./carousel/icon/iconmonstr-payment-27.svg" alt="">
+            <img src="./carousel/icon/iconmonstr-payment-3.svg" alt="">
+        </div> -->
+
+
+        <div id="licence">
+            <p>&copy;2024-Freedom. All right reserved.
+
+        </div>
+
+
+        <script src="./carousel/js/jquery-1.11.3.min.js"></script>
+        <script src="./carousel/js/jquery.jcarousellite.min.js"></script>
+
+        <script>
+
+            $(function () {
+                $('.slide').jCarouselLite({
+                    auto: 1500,
+                    speed: 1000,
+                    scroll: 1,
+                    visible: 1,
+                });
+
+            });
+        </script>
+
+
+
+    </div>
+
+</html>
